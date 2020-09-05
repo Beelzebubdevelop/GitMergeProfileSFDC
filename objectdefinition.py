@@ -12,6 +12,12 @@ class applicationVisibilities:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '1'
+
     def key(self):
         return 'application'
 
@@ -32,6 +38,12 @@ class recordTypeVisibilities:
     def __iter__(self):
         for attr, value in self.__dict__.items():
             yield attr, value
+
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '9'
 
     def key(self):
         return 'recordType'
@@ -54,6 +66,12 @@ class fieldPermissions:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '4'
+
     def key(self):
         return 'field'
 
@@ -74,6 +92,12 @@ class classAccesses:
     def __iter__(self):
         for attr, value in self.__dict__.items():
             yield attr, value
+
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '2'
 
     def key(self):
         return 'apexClass'
@@ -96,6 +120,12 @@ class userPermissions:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '12'
+
     def key(self):
         return 'name'
 
@@ -116,6 +146,12 @@ class customPermissions:
     def __iter__(self):
         for attr, value in self.__dict__.items():
             yield attr, value
+
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '13'
 
     def key(self):
         return 'name'
@@ -138,6 +174,12 @@ class tabVisibilities:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '10'
+
     def key(self):
         return 'tab'
 
@@ -158,6 +200,12 @@ class pageAccesses:
     def __iter__(self):
         for attr, value in self.__dict__.items():
             yield attr, value
+
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '8'
 
     def key(self):
         return 'apexPage'
@@ -180,6 +228,12 @@ class loginIpRanges:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '6'
+
     def key(self):
         return 'endAddress'
 
@@ -200,6 +254,12 @@ class layoutAssignments:
     def __iter__(self):
         for attr, value in self.__dict__.items():
             yield attr, value
+
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '5'
 
     def key(self):
         return 'recordType'
@@ -222,6 +282,12 @@ class objectPermissions:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '7'
+
     def key(self):
         return 'object'
 
@@ -243,6 +309,12 @@ class userLicense:
         for attr, value in self.__dict__.items():
             yield attr, value
 
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '11'
+
     def key(self):
         return 'userLicense'
 
@@ -263,6 +335,12 @@ class custom:
     def __iter__(self):
         for attr, value in self.__dict__.items():
             yield attr, value
+
+    def __lt__(self, other):
+        return self.outputvalue() > other.outputvalue()
+
+    def outputvalue(self):
+        return '3'
 
     def key(self):
         return 'custom'
