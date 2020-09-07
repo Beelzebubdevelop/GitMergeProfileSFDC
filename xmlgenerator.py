@@ -5,13 +5,13 @@ def generatexml(inputlist):
     inputlist.sort()
     output = docstart()
     for elem in inputlist:
-        print('elem: ',elem)
+        #print('elem: ',elem)
         if objectdefinition.oneLineTag(elem): #Single Tag
             output += roottagvalue(elem.instancename(),elem[elem.key()])
         else:
             output += openroottag(elem.instancename())
             for (key,value) in elem:
-                print('subelem: ',(key,value))
+                #print('subelem: ',(key,value))
                 output += childtag(key,value)
             output += closeroottag(elem.instancename())
     output += docend()
