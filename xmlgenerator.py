@@ -11,7 +11,6 @@ def generatexml(inputlist):
         else:
             output += openroottag(elem.instancename())
             for (key,value) in elem:
-                #print('subelem: ',(key,value))
                 output += childtag(key,value)
             output += closeroottag(elem.instancename())
     output += docend()
@@ -20,19 +19,19 @@ def generatexml(inputlist):
 
 
 def docstart():
-    return '<?xml version="1.0" encoding="UTF-8"?>\n<Profile xmlns="http://soap.sforce.com/2006/04/metadata">\n'
+    return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Profile xmlns="http://soap.sforce.com/2006/04/metadata">\n'
 
 def docend():
     return '</Profile>'
 
 def openroottag(name):
-    return '\t<'+name+'>\n'
+    return '    <'+name+'>\n'
 
 def closeroottag(name):
-    return '\t</'+name+'>\n'
+    return '    </'+name+'>\n'
 
 def roottagvalue(name,value):
-    return '\t<'+name+'>'+value+'</'+name+'>\n'
+    return '    <'+name+'>'+value+'</'+name+'>\n'
 
 def childtag(name,value):
-    return '\t\t<'+name+'>'+value+'</'+name+'>\n'
+    return '        <'+name+'>'+value+'</'+name+'>\n'

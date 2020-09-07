@@ -1,3 +1,5 @@
+PositionList = ['fullName','applicationVisibilities','categoryGroupVisibilities','classAccesses','custom','description','externalDataSourceAccesses','fieldPermissions','flowAccesses','layoutAssignments','loginIpRanges','objectPermissions','pageAccesses','recordTypeVisibilities','tabVisibilities','userLicense','userPermissions','customPermissions']
+
 class applicationVisibilities:
     def __getitem__(self, key):
         return getattr(self, key)
@@ -13,10 +15,16 @@ class applicationVisibilities:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '1'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'application'
@@ -40,10 +48,16 @@ class recordTypeVisibilities:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '9'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'recordType'
@@ -67,10 +81,16 @@ class fieldPermissions:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '4'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'field'
@@ -94,10 +114,16 @@ class classAccesses:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '2'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'apexClass'
@@ -121,10 +147,16 @@ class userPermissions:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '12'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'name'
@@ -148,10 +180,16 @@ class customPermissions:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '13'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'name'
@@ -175,10 +213,16 @@ class tabVisibilities:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '10'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'tab'
@@ -202,10 +246,16 @@ class pageAccesses:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '8'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'apexPage'
@@ -229,10 +279,16 @@ class loginIpRanges:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '6'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'endAddress'
@@ -256,13 +312,19 @@ class layoutAssignments:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '5'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
-        return 'recordType'
+        return 'recordType' if hasattr(self, 'recordType') else 'layout'
 
     def instancename(self):
         return 'layoutAssignments'
@@ -283,10 +345,16 @@ class objectPermissions:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '7'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'object'
@@ -310,10 +378,16 @@ class userLicense:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '11'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'userLicense'
@@ -337,10 +411,16 @@ class custom:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '3'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'custom'
@@ -363,10 +443,16 @@ class fullName:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '3'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'fullName'
@@ -389,10 +475,16 @@ class externalDataSourceAccesses:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '3'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'externalDataSource'
@@ -415,10 +507,16 @@ class flowAccesses:
             yield attr, value
 
     def __lt__(self, other):
-        return self.outputvalue() > other.outputvalue()
+        return self.outputposition() < other.outputposition()
 
-    def outputvalue(self):
-        return '3'
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
 
     def key(self):
         return 'flow'
@@ -426,6 +524,69 @@ class flowAccesses:
     def instancename(self):
         return 'flowAccesses'
 
+class description:
+    def __getitem__(self, key):
+        return getattr(self, key)
+
+    def __setitem__(self, key, value):
+        return setattr(self, key, value)
+
+    def __str__(self):
+        return str(self.__dict__)
+    
+    def __iter__(self):
+        for attr, value in self.__dict__.items():
+            yield attr, value
+
+    def __lt__(self, other):
+        return self.outputposition() < other.outputposition()
+
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
+
+    def key(self):
+        return 'description'
+
+    def instancename(self):
+        return 'description'
+
+class categoryGroupVisibilities:
+    def __getitem__(self, key):
+        return getattr(self, key)
+
+    def __setitem__(self, key, value):
+        return setattr(self, key, value)
+
+    def __str__(self):
+        return str(self.__dict__)
+
+    def __iter__(self):
+        for attr, value in self.__dict__.items():
+            yield attr, value
+
+    def __lt__(self, other):
+        return self.outputposition() < other.outputposition()
+
+    def __eq__(self, other):
+        return self.__class__ == other.__class__ and self.__getitem__(self.key())==other.__getitem__(other.key())
+
+    def __hash__(self):
+        return hash(self.__getitem__(self.key()))
+
+    def outputposition(self):
+        return PositionList.index(self.instancename())
+
+    def key(self):
+        return 'dataCategoryGroup'
+
+    def instancename(self):
+        return 'categoryGroupVisibilities'
 
 def oneLineTag(obj):
-    return isinstance(obj, userLicense) or isinstance(obj, custom) or isinstance(obj, fullName)
+    return isinstance(obj, userLicense) or isinstance(obj, custom) or isinstance(obj, fullName) or isinstance(obj, description)
