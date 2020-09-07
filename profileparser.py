@@ -27,11 +27,11 @@ def parse(pathname):
     root = tree.getroot()
 
     for elem in root:
-        testelement = str_to_class('objectdefinition',elem.tag) #Dynamic instantiation
+        testelement = str_to_class('objectdefinition',elem.tag.split("}",1)[1] ) #Dynamic instantiation
         if objectdefinition.oneLineTag(testelement): #Single Tag
-            testelement[elem.tag] = elem.text
+            testelement[elem.tag.split("}",1)[1] ] = elem.text
         for subelem in elem:
-            testelement[subelem.tag] = subelem.text
+            testelement[subelem.tag.split("}",1)[1] ] = subelem.text
         mylist.append(testelement)
     print('Parser for ',pathname,' End')
     return mylist
